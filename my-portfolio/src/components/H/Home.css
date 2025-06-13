@@ -1,0 +1,232 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Container */
+.home-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 3rem;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Name Styling */
+.name {
+    font-size: 3.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ffffff, #c0e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.2rem;
+    animation: slideInLeft 1s ease-out;
+}
+
+/* Description */
+.Description {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #e6f7ff;
+    max-width: 700px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 1.2rem;
+    border-left: 4px solid #00c9ff;
+    animation: fadeInUp 1.4s ease-out;
+    margin-bottom: 2rem;
+}
+
+/* Right Section */
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* Profile Photo */
+.photo-frame {
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 201, 255, 0.3);
+    animation: pulse 3s infinite;
+    border: 8px solid #ffffff;
+    background: radial-gradient(circle, #1c2b36, #0f2027);
+    transition: transform 0.4s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.07);
+    box-shadow: 0 35px 60px rgba(0, 123, 147, 0.4);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.social-icon {
+    font-size: 1.9rem;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #0f2027, #203a43);
+    box-shadow: 0 0 20px rgba(0, 201, 255, 0.25);
+    transition: all 0.4s ease, transform 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 201, 255, 0.25), transparent 60%);
+    z-index: -1;
+    transform: scale(1);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.15);
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    box-shadow: 0 10px 30px rgba(0, 123, 147, 0.6);
+}
+
+.social-icon:hover::before {
+    transform: scale(1.6);
+    opacity: 1;
+}
+
+.social-icon:hover i {
+    animation: bounce 0.8s infinite;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-80px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(0, 201, 255, 0.4);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(0, 201, 255, 0.6);
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .left-section {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .name {
+        font-size: 2.7rem;
+    }
+
+    .Description {
+        font-size: 1.4rem;
+        padding-left: 0;
+        border-left: none;
+        text-align: center;
+        margin: 1.2rem 0;
+    }
+
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        font-size: 1.4rem;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .Description {
+        font-size: 1.2rem;
+    }
+
+    .photo-frame {
+        width: 220px;
+        height: 220px;
+    }
+
+    .social-icon {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,209 @@
+/* Base container */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0d1117, #1c1f26);
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* Animated glowing background */
+.loader-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, #4da6ff20, #0d111700 70%);
+  animation: pulseBackground 8s infinite ease-in-out;
+  z-index: -1;
+}
+
+@keyframes pulseBackground {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Glowing ring loader */
+.ring-loader {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #4da6ff;
+  background: conic-gradient(#4da6ff 10%, transparent 10% 100%);
+  animation: rotate 1.5s linear infinite;
+}
+
+.ring-loader::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: #0d1117;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inner glowing dots (orbit style) */
+.loader-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.loader-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #4da6ff;
+  border-radius: 50%;
+  animation: orbit 2s linear infinite;
+}
+
+.loader-dot:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0s;
+}
+
+.loader-dot:nth-child(2) {
+  top: 14%;
+  left: 85%;
+  animation-delay: 0.2s;
+}
+
+.loader-dot:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  animation-delay: 0.4s;
+}
+
+.loader-dot:nth-child(4) {
+  top: 86%;
+  left: 85%;
+  animation-delay: 0.6s;
+}
+
+.loader-dot:nth-child(5) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.8s;
+}
+
+.loader-dot:nth-child(6) {
+  top: 86%;
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.loader-dot:nth-child(7) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation-delay: 1.2s;
+}
+
+.loader-dot:nth-child(8) {
+  top: 14%;
+  left: 15%;
+  animation-delay: 1.4s;
+}
+
+@keyframes orbit {
+
+  0%,
+  100% {
+    transform: scale(1);
+    background-color: #4da6ff;
+  }
+
+  50% {
+    transform: scale(1.6);
+    background-color: #ffffff;
+  }
+}
+
+/* Shimmer loading text */
+.loading-text {
+  margin-top: 40px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, #ffffff, #4da6ff, #ffffff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .ring-loader {
+    width: 100px;
+    height: 100px;
+  }
+
+  .loader-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .loading-text {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ring-loader {
+    width: 80px;
+    height: 80px;
+  }
+
+  .loading-text {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+}
