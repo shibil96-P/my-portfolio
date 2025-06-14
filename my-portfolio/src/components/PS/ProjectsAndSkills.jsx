@@ -3,7 +3,7 @@ import "./ProjectsAndSkills.css";
 
 const ProjectsAndSkills = () => {
   const projects = [
-    
+
     {
       title: "Portfolio Website",
       description: "Interactive Portfolio Website: Displaying My Development Projects and Skills in a Mobile-Optimized Design.",
@@ -125,7 +125,7 @@ const ProjectsAndSkills = () => {
       <div className="see-more-container">
         <button
           className="see-more-btn"
-          onClick={() => window.open("https://github.com/Faisal-rio", "_blank")}
+          onClick={() => window.open("https://github.com/shibil96-P/shibil96-P", "_blank")}
         >
           More Projects😊
         </button>
