@@ -11,7 +11,7 @@ const Education = () => {
       grade: "Certificate of Completion",
       description:
         "Completed an intensive Full Stack Development course, focusing on MySql, Python, React, and Django. Gained hands-on experience in building web applications.",
-      // certificateLink: "https://www.guvi.in/share-certificate/DM34BR91925XC229H7",
+      
     },
     {
       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbJmfkzVuXUcW4hi4WdTZ19Lkckw2gRsnN3aKS5TMsbHwgOcXLDjU1wU&s",
